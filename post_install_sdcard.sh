@@ -52,7 +52,7 @@ if ! service_exists sdcard_minimize_write; then
 	# Make the Minimize writes script.
 	cat >~/.ryanrudolf/sdcard_minimize_write.sh <<EOF
 #!/bin/bash
-for mountpoint in \$(mount | grep mmcblk0p | tr -s " " | cut -d " " -f 3)
+for mountpoint in \$(mount | grep sda | tr -s " " | cut -d " " -f 3)
 do 
 	mount -o rw,remount,noatime \$mountpoint
 	echo \$mountpoint has been remounted with noatime flag.
